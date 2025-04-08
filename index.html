@@ -8,43 +8,10 @@
 </head>
 
   <body>
-
-    <form id="chatForm">
-        <h3>Información de cliente</h3>
-
-        <table class="webchat-config">
-            <tbody>
-                <tr>
-                    <th>Nombre:</th>
-                    <td><input type="text" id="first-name" value="63641" /></td>
-                </tr>
-                <tr>
-                    <th>Apellidos:</th>
-                    <td><input type="text" id="last-name" value="Fernandez Estebaranz" /></td>
-                </tr>
-                <tr>
-                    <th>Correo-e:</th>
-                    <td><input type="text" id="correo-e" value="cfernandeze@minsait.com" /></td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="button" id="chat-button" onclick="clickInitChat()">Iniciar Chat</button>
-        <button type="button" id="chat-button2" onclick="iniciarChat(g, e, n, es, ys)()">Iniciar Chat2</button>
-    </form>
-    <div id="chat-container" style="height:600px"></div>
-
-<script>
-	
-	function clickInitChat(){
-		var firstName = document.getElementById('first-name').value;
-		alert(firstName);
-	}
-	
-</script>
 	  
 <!-- PRUEBA de implementacion de webmessaging ' -->
 <script type="text/javascript" charset="utf-8">	
-  (function iniciarChat(g, e, n, es, ys) {
+  (function (g, e, n, es, ys) {
     g['_genesysJs'] = e;
     g[e] = g[e] || function () {
       (g[e].q = g[e].q || []).push(arguments)
@@ -54,15 +21,13 @@
     ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
   })(window, 'Genesys', 'https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js', {
     environment: 'euw1',
-    <!--deploymentId: '293533ce-c784-456a-935c-a1e742952bb0'-->
-    deploymentId: '32423072-dbe4-4eeb-9971-db3d7dfae0fe'
+    deploymentId: '293533ce-c784-456a-935c-a1e742952bb0'
   });	
 
-  var firstName = document.getElementById('first-name').value;
   Genesys("command", "Database.set", {
 	  messaging: {
 		customAttributes: {
-			codigo_agente : firstName,
+			codigo_agente : '63641',
 		}
 	  }	
   });
