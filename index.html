@@ -10,7 +10,16 @@
   <body>
 <!-- PRUEBA de implementacion de webmessaging ' -->
 <script type="text/javascript" charset="utf-8">	
-  (function (g, e, n, es, ys) {
+  function iniciarChat(g, e, n, es, ys) {
+
+	  Genesys("command", "Database.set", {
+		  messaging: {
+			customAttributes: {
+				codigo_agente: '63641',
+			}
+		  }	
+	  }
+	  
     g['_genesysJs'] = e;
     g[e] = g[e] || function () {
       (g[e].q = g[e].q || []).push(arguments)
@@ -21,16 +30,7 @@
   })(window, 'Genesys', 'https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js', {
     environment: 'euw1',
     deploymentId: '293533ce-c784-456a-935c-a1e742952bb0'
-  });	
-
-  Genesys("command", "Database.set", {
-	  messaging: {
-		customAttributes: {
-			codigo_agente: '63641',
-		}
-	  }	
-  });
-	
+  });		
 </script>	
 	
 </body>
